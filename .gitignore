@@ -1,0 +1,52 @@
+# macOS
+.DS_Store
+
+# Local agent settings
+.claude/settings.local.json
+
+# Build output
+build/
+*.bin
+*.elf
+*.hex
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+.mypy_cache/
+.pytest_cache/
+
+# Node / browser tests
+node_modules/
+test-results/
+playwright-report/
+
+# Logs and scratch
+*.log
+tmp/
+
+# Edge Impulse models (multi-MB binaries)
+*.eim
+*.tflite
+
+# Secrets (API keys, e.g. ElevenLabs, Edge Impulse)
+.env
+*.env
+.env.*
+!.env.example
+secrets.*
+
+# Browser test artifacts
+.playwright-cli/
+
+# Local data state (upload log, board leaderboard, keys)
+data/.uploaded
+data/leaderboard.json
+data/*.key
+data/live_tts
+
+# New recordings: the recorder puts the typed player name in the filename,
+# so new clips stay local until renamed.
+data/*.csv
+data/crops/*.csv
