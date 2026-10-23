@@ -1,0 +1,12 @@
+{
+  "name": "llama-drama",
+  "private": true,
+  "description": "Llama Drama browser game: static web build and tests",
+  "scripts": {
+    "dev": "node tests/web/serve.js 8000",
+    "test": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.64.1"
+  }
+}
