@@ -1,0 +1,789 @@
+{
+  "chars": {
+    "gary": {
+      "style": "sarcastic llama"
+    },
+    "sunny": {
+      "style": "cheerful robot"
+    },
+    "hero": {
+      "style": "epic brave announcer"
+    }
+  },
+  "events": {
+    "start": [
+      {
+        "who": "sunny",
+        "text": "Let's go! Wave those hands!",
+        "file": "sunny_start_1.mp3"
+      },
+      {
+        "who": "gary",
+        "text": "Oh good. Another hero.",
+        "file": "gary_start_2.mp3"
+      },
+      {
+        "who": "sunny",
+        "text": "You've got this, champ!",
+        "file": "sunny_start_3.mp3"
+      },
+      {
+        "who": "gary",
+        "text": "Try not to fall in the first pit.",
+        "file": "gary_start_4.mp3"
+      },
+      {
+        "who": "sunny",
+        "text": "Three lives, infinite style!",
+        "file": "sunny_start_5.mp3"
+      }
+    ],
+    "coin_streak": [
+      {
+        "who": "sunny",
+        "text": "Coin party! Keep them coming!",
+        "file": "sunny_coin_streak_1.mp3"
+      },
+      {
+        "who": "gary",
+        "text": "Shiny. You like shiny.",
+        "file": "gary_coin_streak_2.mp3"
+      },
+      {
+        "who": "sunny",
+        "text": "Look at you, collecting everything!",
+        "file": "sunny_coin_streak_3.mp3"
+      },
+      {
+        "who": "gary",
+        "text": "Fine. That was decent.",
+        "file": "gary_coin_streak_4.mp3"
+      },
+      {
+        "who": "sunny",
+        "text": "Cha-ching! You're on fire!",
+        "file": "sunny_coin_streak_5.mp3"
+      }
+    ],
+    "near_miss": [
+      {
+        "who": "gary",
+        "text": "Close. My heart almost beat.",
+        "file": "gary_near_miss_1.mp3"
+      },
+      {
+        "who": "sunny",
+        "text": "Whoa! Too close, so cool!",
+        "file": "sunny_near_miss_2.mp3"
+      },
+      {
+        "who": "gary",
+        "text": "Showing off, are we?",
+        "file": "gary_near_miss_3.mp3"
+      },
+      {
+        "who": "sunny",
+        "text": "Nerves of steel!",
+        "file": "sunny_near_miss_4.mp3"
+      },
+      {
+        "who": "gary",
+        "text": "Thrilling. I may yawn later.",
+        "file": "gary_near_miss_5.mp3"
+      }
+    ],
+    "hit": [
+      {
+        "who": "gary",
+        "text": "Ouch. The wall won.",
+        "file": "gary_hit_1.mp3"
+      },
+      {
+        "who": "sunny",
+        "text": "Shake it off, champ!",
+        "file": "sunny_hit_2.mp3"
+      },
+      {
+        "who": "gary",
+        "text": "Did you not see that?",
+        "file": "gary_hit_3.mp3"
+      },
+      {
+        "who": "sunny",
+        "text": "Oops! Next one is yours!",
+        "file": "sunny_hit_4.mp3"
+      },
+      {
+        "who": "gary",
+        "text": "Bonk. Classic.",
+        "file": "gary_hit_5.mp3"
+      }
+    ],
+    "life_lost": [
+      {
+        "who": "gary",
+        "text": "One life down. Two to go.",
+        "file": "gary_life_lost_1.mp3"
+      },
+      {
+        "who": "sunny",
+        "text": "You're still in this! Breathe!",
+        "file": "sunny_life_lost_2.mp3"
+      },
+      {
+        "who": "gary",
+        "text": "Careful. Lives are not free.",
+        "file": "gary_life_lost_3.mp3"
+      },
+      {
+        "who": "sunny",
+        "text": "Heart back up, you can do it!",
+        "file": "sunny_life_lost_4.mp3"
+      }
+    ],
+    "level_up": [
+      {
+        "who": "sunny",
+        "text": "Level up! You're amazing!",
+        "file": "sunny_level_up_1.mp3"
+      },
+      {
+        "who": "gary",
+        "text": "Faster now. Good luck.",
+        "file": "gary_level_up_2.mp3"
+      },
+      {
+        "who": "sunny",
+        "text": "New level, new records!",
+        "file": "sunny_level_up_3.mp3"
+      },
+      {
+        "who": "gary",
+        "text": "Fine, I'm a little impressed.",
+        "file": "gary_level_up_4.mp3"
+      },
+      {
+        "who": "sunny",
+        "text": "Yes! Speed is your friend!",
+        "file": "sunny_level_up_5.mp3"
+      }
+    ],
+    "super_pickup": [
+      {
+        "who": "gary",
+        "text": "Nice cape. Very subtle.",
+        "file": "gary_super_pickup_1.mp3"
+      },
+      {
+        "who": "sunny",
+        "text": "Super power! Go go go!",
+        "file": "sunny_super_pickup_2.mp3"
+      },
+      {
+        "who": "gary",
+        "text": "Is that a purple cape? Bold.",
+        "file": "gary_super_pickup_3.mp3"
+      },
+      {
+        "who": "sunny",
+        "text": "You're a real hero now!",
+        "file": "sunny_super_pickup_4.mp3"
+      },
+      {
+        "who": "gary",
+        "text": "Capes. Always capes.",
+        "file": "gary_super_pickup_5.mp3"
+      }
+    ],
+    "super_multi": [
+      {
+        "who": "sunny",
+        "text": "Boom! Triple trouble gone!",
+        "file": "sunny_super_multi_1.mp3"
+      },
+      {
+        "who": "gary",
+        "text": "Okay, that was cool.",
+        "file": "gary_super_multi_2.mp3"
+      },
+      {
+        "who": "sunny",
+        "text": "Obstacles everywhere, destroyed!",
+        "file": "sunny_super_multi_3.mp3"
+      },
+      {
+        "who": "gary",
+        "text": "Overkill. I respect it.",
+        "file": "gary_super_multi_4.mp3"
+      },
+      {
+        "who": "sunny",
+        "text": "Super shot! Incredible!",
+        "file": "sunny_super_multi_5.mp3"
+      }
+    ],
+    "shield": [
+      {
+        "who": "sunny",
+        "text": "Bubble up! Safe and sound!",
+        "file": "sunny_shield_1.mp3"
+      },
+      {
+        "who": "gary",
+        "text": "A bubble. How fancy.",
+        "file": "gary_shield_2.mp3"
+      },
+      {
+        "who": "sunny",
+        "text": "Wave power! Nothing can touch you!",
+        "file": "sunny_shield_3.mp3"
+      },
+      {
+        "who": "gary",
+        "text": "Hiding already? Smart.",
+        "file": "gary_shield_4.mp3"
+      }
+    ],
+    "game_over": [
+      {
+        "who": "gary",
+        "text": "Well. That happened.",
+        "file": "gary_game_over_1.mp3"
+      },
+      {
+        "who": "sunny",
+        "text": "Great run! Try again!",
+        "file": "sunny_game_over_2.mp3"
+      },
+      {
+        "who": "gary",
+        "text": "The floor is still there. Hello.",
+        "file": "gary_game_over_3.mp3"
+      },
+      {
+        "who": "sunny",
+        "text": "So close! One more go!",
+        "file": "sunny_game_over_4.mp3"
+      },
+      {
+        "who": "gary",
+        "text": "Do not quit. I'm bored.",
+        "file": "gary_game_over_5.mp3"
+      }
+    ],
+    "high_score": [
+      {
+        "who": "sunny",
+        "text": "New high score! Legend!",
+        "file": "sunny_high_score_1.mp3"
+      },
+      {
+        "who": "gary",
+        "text": "A record. Don't get cocky.",
+        "file": "gary_high_score_2.mp3"
+      },
+      {
+        "who": "sunny",
+        "text": "Top of the board! Wow!",
+        "file": "sunny_high_score_3.mp3"
+      },
+      {
+        "who": "gary",
+        "text": "Fine. You win. Briefly.",
+        "file": "gary_high_score_4.mp3"
+      }
+    ],
+    "cm_filler": [
+      {
+        "who": "sunny",
+        "text": "And our runner is off and running!",
+        "file": "sunny_cm_filler_1.mp3",
+        "reply": {
+          "who": "gary",
+          "text": "Running. Technically. Loosely.",
+          "file": "gary_cm_filler_1r.mp3"
+        }
+      },
+      {
+        "who": "gary",
+        "text": "Nice pace. For a parking lot.",
+        "file": "gary_cm_filler_2.mp3"
+      },
+      {
+        "who": "sunny",
+        "text": "What a day for a sprint, folks!",
+        "file": "sunny_cm_filler_3.mp3"
+      },
+      {
+        "who": "gary",
+        "text": "The crowd is wild. Mostly confused.",
+        "file": "gary_cm_filler_4.mp3"
+      },
+      {
+        "who": "sunny",
+        "text": "Look at those moves, Gary!",
+        "file": "sunny_cm_filler_5.mp3",
+        "reply": {
+          "who": "gary",
+          "text": "I'm looking. I regret it.",
+          "file": "gary_cm_filler_5r.mp3"
+        }
+      },
+      {
+        "who": "gary",
+        "text": "Another step. Another miracle.",
+        "file": "gary_cm_filler_6.mp3"
+      },
+      {
+        "who": "sunny",
+        "text": "The stadium is on its feet!",
+        "file": "sunny_cm_filler_7.mp3"
+      },
+      {
+        "who": "sunny",
+        "text": "Smooth, smooth, smooth out there!",
+        "file": "sunny_cm_filler_8.mp3"
+      },
+      {
+        "who": "gary",
+        "text": "I've seen faster. In slow motion.",
+        "file": "gary_cm_filler_9.mp3"
+      },
+      {
+        "who": "sunny",
+        "text": "Pure poetry in motion, folks!",
+        "file": "sunny_cm_filler_10.mp3"
+      }
+    ],
+    "cm_lane": [
+      {
+        "who": "sunny",
+        "text": "And he's off down the left lane!",
+        "file": "sunny_cm_lane_1.mp3"
+      },
+      {
+        "who": "gary",
+        "text": "Swerve! Nobody saw that coming. Except everyone.",
+        "file": "gary_cm_lane_2.mp3",
+        "reply": {
+          "who": "sunny",
+          "text": "Gary, so negative!",
+          "file": "sunny_cm_lane_2r.mp3"
+        }
+      },
+      {
+        "who": "sunny",
+        "text": "Lane change! Smooth as butter!",
+        "file": "sunny_cm_lane_3.mp3"
+      },
+      {
+        "who": "gary",
+        "text": "Right lane now. Bold. Dangerous. Fine.",
+        "file": "gary_cm_lane_4.mp3"
+      },
+      {
+        "who": "sunny",
+        "text": "Dodging left, cutting right!",
+        "file": "sunny_cm_lane_5.mp3",
+        "reply": {
+          "who": "gary",
+          "text": "Show-off.",
+          "file": "gary_cm_lane_5r.mp3"
+        }
+      }
+    ],
+    "cm_jump": [
+      {
+        "who": "sunny",
+        "text": "And up they go! Incredible air!",
+        "file": "sunny_cm_jump_1.mp3",
+        "reply": {
+          "who": "gary",
+          "text": "Gravity says hello shortly.",
+          "file": "gary_cm_jump_1r.mp3"
+        }
+      },
+      {
+        "who": "gary",
+        "text": "Jump! Because walking was too easy.",
+        "file": "gary_cm_jump_2.mp3"
+      },
+      {
+        "who": "sunny",
+        "text": "What a leap! Gary, did you see?",
+        "file": "sunny_cm_jump_3.mp3"
+      },
+      {
+        "who": "gary",
+        "text": "Airborne. Briefly. Like my hopes.",
+        "file": "gary_cm_jump_4.mp3"
+      },
+      {
+        "who": "sunny",
+        "text": "Sky high, our runner is flying!",
+        "file": "sunny_cm_jump_5.mp3"
+      }
+    ],
+    "cm_duck": [
+      {
+        "who": "sunny",
+        "text": "Ducking low! Textbook technique!",
+        "file": "sunny_cm_duck_1.mp3"
+      },
+      {
+        "who": "gary",
+        "text": "Down they go. Like my retirement fund.",
+        "file": "gary_cm_duck_2.mp3",
+        "reply": {
+          "who": "sunny",
+          "text": "Gary!",
+          "file": "sunny_cm_duck_2r.mp3"
+        }
+      },
+      {
+        "who": "sunny",
+        "text": "A beautiful duck under that one!",
+        "file": "sunny_cm_duck_3.mp3"
+      },
+      {
+        "who": "gary",
+        "text": "Limbo champion of the stadium.",
+        "file": "gary_cm_duck_4.mp3"
+      },
+      {
+        "who": "sunny",
+        "text": "Ducked it! Smooth as a pro!",
+        "file": "sunny_cm_duck_5.mp3"
+      }
+    ],
+    "cm_coin": [
+      {
+        "who": "sunny",
+        "text": "Coins, coins, coins! Cha-ching!",
+        "file": "sunny_cm_coin_1.mp3",
+        "reply": {
+          "who": "gary",
+          "text": "Spend it all on helmets.",
+          "file": "gary_cm_coin_1r.mp3"
+        }
+      },
+      {
+        "who": "gary",
+        "text": "Shiny. Everybody loves shiny.",
+        "file": "gary_cm_coin_2.mp3"
+      },
+      {
+        "who": "sunny",
+        "text": "Another coin in the bag!",
+        "file": "sunny_cm_coin_3.mp3"
+      },
+      {
+        "who": "gary",
+        "text": "Collecting like a tiny dragon.",
+        "file": "gary_cm_coin_4.mp3"
+      },
+      {
+        "who": "sunny",
+        "text": "The crowd loves the gold!",
+        "file": "sunny_cm_coin_5.mp3"
+      }
+    ],
+    "cm_obstacle": [
+      {
+        "who": "sunny",
+        "text": "Obstacle ahead! Here it comes!",
+        "file": "sunny_cm_obstacle_1.mp3",
+        "reply": {
+          "who": "gary",
+          "text": "Oh, I'm sure it'll be fine.",
+          "file": "gary_cm_obstacle_1r.mp3"
+        }
+      },
+      {
+        "who": "gary",
+        "text": "Something big. And pointy. Exciting.",
+        "file": "gary_cm_obstacle_2.mp3"
+      },
+      {
+        "who": "sunny",
+        "text": "Watch out, runner! Trouble ahead!",
+        "file": "sunny_cm_obstacle_3.mp3"
+      },
+      {
+        "who": "gary",
+        "text": "That looks expensive. Dodge it.",
+        "file": "gary_cm_obstacle_4.mp3"
+      },
+      {
+        "who": "sunny",
+        "text": "Tension rising in the stadium!",
+        "file": "sunny_cm_obstacle_5.mp3"
+      }
+    ],
+    "cm_speed": [
+      {
+        "who": "sunny",
+        "text": "We're picking up speed, folks!",
+        "file": "sunny_cm_speed_1.mp3",
+        "reply": {
+          "who": "gary",
+          "text": "Faster to the finish. Or the wall.",
+          "file": "gary_cm_speed_1r.mp3"
+        }
+      },
+      {
+        "who": "gary",
+        "text": "Faster now. What could go wrong?",
+        "file": "gary_cm_speed_2.mp3"
+      },
+      {
+        "who": "sunny",
+        "text": "Gary, have you ever seen speed like this?",
+        "file": "sunny_cm_speed_3.mp3",
+        "reply": {
+          "who": "gary",
+          "text": "Once. A snail on a skateboard.",
+          "file": "gary_cm_speed_3r.mp3"
+        }
+      },
+      {
+        "who": "sunny",
+        "text": "Turbo mode! Hold on to your hats!",
+        "file": "sunny_cm_speed_4.mp3"
+      }
+    ],
+    "cm_fork": [
+      {
+        "who": "sunny",
+        "text": "A fork in the road! Choose wisely!",
+        "file": "sunny_cm_fork_1.mp3",
+        "reply": {
+          "who": "gary",
+          "text": "Left. No, right. Ugh.",
+          "file": "gary_cm_fork_1r.mp3"
+        }
+      },
+      {
+        "who": "gary",
+        "text": "Two paths. Both probably bad.",
+        "file": "gary_cm_fork_2.mp3"
+      },
+      {
+        "who": "sunny",
+        "text": "Decision time! Which way, runner?",
+        "file": "sunny_cm_fork_3.mp3"
+      },
+      {
+        "who": "gary",
+        "text": "Pick one. The suspense is killing me.",
+        "file": "gary_cm_fork_4.mp3"
+      }
+    ],
+    "cm_shoot": [
+      {
+        "who": "sunny",
+        "text": "Shot fired! Right down the middle!",
+        "file": "sunny_cm_shoot_1.mp3",
+        "reply": {
+          "who": "gary",
+          "text": "Pew pew. Very dramatic.",
+          "file": "gary_cm_shoot_1r.mp3"
+        }
+      },
+      {
+        "who": "gary",
+        "text": "Pew. Nice shot, I guess.",
+        "file": "gary_cm_shoot_2.mp3"
+      },
+      {
+        "who": "sunny",
+        "text": "Boom! Straight at the target!",
+        "file": "sunny_cm_shoot_3.mp3"
+      },
+      {
+        "who": "gary",
+        "text": "Aim, fire, hope for the best.",
+        "file": "gary_cm_shoot_4.mp3"
+      }
+    ],
+    "cm_score": [
+      {
+        "who": "sunny",
+        "text": "The score is climbing, folks!",
+        "file": "sunny_cm_score_1.mp3",
+        "reply": {
+          "who": "gary",
+          "text": "Someone call the record books.",
+          "file": "gary_cm_score_1r.mp3"
+        }
+      },
+      {
+        "who": "gary",
+        "text": "Big score. Mom would be proud.",
+        "file": "gary_cm_score_2.mp3"
+      },
+      {
+        "who": "sunny",
+        "text": "What a total! Unreal numbers!",
+        "file": "sunny_cm_score_3.mp3"
+      },
+      {
+        "who": "gary",
+        "text": "Points! The crowd goes mildly wild.",
+        "file": "gary_cm_score_4.mp3"
+      }
+    ],
+    "cm_banter": [
+      {
+        "who": "sunny",
+        "text": "Gary, what a match today!",
+        "file": "sunny_cm_banter_1.mp3",
+        "reply": {
+          "who": "gary",
+          "text": "Match? I thought it was a fire drill.",
+          "file": "gary_cm_banter_1r.mp3"
+        }
+      },
+      {
+        "who": "gary",
+        "text": "Honestly, I'm just here for snacks.",
+        "file": "gary_cm_banter_2.mp3",
+        "reply": {
+          "who": "sunny",
+          "text": "Gary! Eyes on the runner!",
+          "file": "sunny_cm_banter_2r.mp3"
+        }
+      },
+      {
+        "who": "sunny",
+        "text": "Best game of the season, Gary!",
+        "file": "sunny_cm_banter_3.mp3",
+        "reply": {
+          "who": "gary",
+          "text": "It's the only game this season.",
+          "file": "gary_cm_banter_3r.mp3"
+        }
+      },
+      {
+        "who": "gary",
+        "text": "Our runner has real talent, Sunny.",
+        "file": "gary_cm_banter_4.mp3",
+        "reply": {
+          "who": "sunny",
+          "text": "Gary said something nice!",
+          "file": "sunny_cm_banter_4r.mp3"
+        }
+      },
+      {
+        "who": "sunny",
+        "text": "Gary, predictions for the finish?",
+        "file": "sunny_cm_banter_5.mp3",
+        "reply": {
+          "who": "gary",
+          "text": "Dramatic. Loud. Slightly sweaty.",
+          "file": "gary_cm_banter_5r.mp3"
+        }
+      },
+      {
+        "who": "gary",
+        "text": "Do you think they can hear us?",
+        "file": "gary_cm_banter_6.mp3",
+        "reply": {
+          "who": "sunny",
+          "text": "Hello, runner! Keep going!",
+          "file": "sunny_cm_banter_6r.mp3"
+        }
+      }
+    ],
+    "super_shot": [
+      {
+        "who": "hero",
+        "text": "SUPER SHOT! Unleash the cape!",
+        "file": "hero_super_shot_1.mp3"
+      },
+      {
+        "who": "hero",
+        "text": "By the power of purple!",
+        "file": "hero_super_shot_2.mp3"
+      },
+      {
+        "who": "hero",
+        "text": "Nothing stands in your way!",
+        "file": "hero_super_shot_3.mp3"
+      },
+      {
+        "who": "hero",
+        "text": "Behold! The ultimate blast!",
+        "file": "hero_super_shot_4.mp3"
+      },
+      {
+        "who": "hero",
+        "text": "Fear the mighty super shot!",
+        "file": "hero_super_shot_5.mp3"
+      }
+    ]
+  },
+  "sfx": {
+    "cheer": [
+      {
+        "file": "sfx/cheer_1.mp3",
+        "prompt": "Stadium crowd cheering loudly after a goal",
+        "duration": 3
+      },
+      {
+        "file": "sfx/cheer_2.mp3",
+        "prompt": "Huge football stadium crowd roaring and cheering",
+        "duration": 2.5
+      },
+      {
+        "file": "sfx/cheer_3.mp3",
+        "prompt": "Crowd applauding and cheering excitedly",
+        "duration": 2
+      }
+    ],
+    "ooh": [
+      {
+        "file": "sfx/ooh_1.mp3",
+        "prompt": "Stadium crowd collective 'ooooh' gasp at a near miss",
+        "duration": 2
+      },
+      {
+        "file": "sfx/ooh_2.mp3",
+        "prompt": "Crowd 'ooooh' of tense surprise",
+        "duration": 1.5
+      }
+    ],
+    "wow": [
+      {
+        "file": "sfx/wow_1.mp3",
+        "prompt": "Stadium crowd 'woooow' amazed reaction",
+        "duration": 2.5
+      },
+      {
+        "file": "sfx/wow_2.mp3",
+        "prompt": "Crowd saying 'woooow' impressed and amazed",
+        "duration": 2
+      }
+    ],
+    "aww": [
+      {
+        "file": "sfx/aww_1.mp3",
+        "prompt": "Stadium crowd 'awww' disappointed groan",
+        "duration": 2.5
+      },
+      {
+        "file": "sfx/aww_2.mp3",
+        "prompt": "Crowd sighing 'awww' sympathetically",
+        "duration": 2
+      }
+    ],
+    "ambient": [
+      {
+        "file": "sfx/ambient_1.mp3",
+        "prompt": "Ambient stadium crowd murmur, steady background chatter, seamless loop",
+        "duration": 10,
+        "loop": true
+      }
+    ]
+  }
+}
