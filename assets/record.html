@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI Recorder</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: #0b0f14; color: #e8f0ff; font-family: system-ui, Arial, sans-serif; }
+  body { padding: 12px 16px; max-width: 1100px; margin: 0 auto; }
+  h1 { margin: 0 0 8px; font-size: 24px; }
+  nav { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 10px; }
+  nav a { color: #ffd24a; border: 2px solid #3a4666; border-radius: 10px; padding: 8px 14px; text-decoration: none; font-weight: 700; }
+  .bar, .row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 10px; align-items: center; }
+  .pill { padding: 10px 14px; border-radius: 10px; background: #1a2036; font: 700 16px ui-monospace, Menlo, monospace; }
+  .pill.ok { background: #14532d; } .pill.bad { background: #7f1d1d; }
+  .labels { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-bottom: 10px; }
+  .lab { min-height: 90px; border: 3px solid #3a4666; border-radius: 14px; background: #1a2036; color: #fff; font: 800 22px system-ui, Arial, sans-serif; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+  .lab small { font: 600 14px ui-monospace, Menlo, monospace; color: #9fb4d8; }
+  .lab.rec { background: #b91c1c; border-color: #fff; }
+  .lab:disabled { opacity: .5; cursor: default; }
+  input, select, button.b { min-height: 44px; padding: 0 12px; border: 2px solid #3a4666; border-radius: 10px; background: #1a2036; color: #fff; font: 600 16px system-ui, Arial, sans-serif; }
+  button.b { cursor: pointer; }
+  #count { font: 900 clamp(48px, 14vw, 140px) ui-monospace, Menlo, monospace; text-align: center; min-height: 1.2em; color: #ffd24a; }
+  #status { text-align: center; font: 700 18px system-ui; min-height: 1.4em; margin-bottom: 8px; }
+  canvas { width: 100%; height: 260px; background: #000; border-radius: 12px; display: block; }
+  .legend span { margin-right: 14px; font: 700 14px ui-monospace, Menlo, monospace; }
+  .tip { color: #9fb4d8; font-size: 15px; }
+  @media (max-width: 600px) { .labels { grid-template-columns: repeat(3, 1fr); } }
+</style>
+</head>
+<body>
+<h1>AI Recorder (PAJ7620 raw)</h1>
+<nav>
+  <a href="./index.html">Game</a><a href="./sensor.html">Sensor test</a><a href="./proto/a.html">Proto A</a><a href="./proto/b.html">Proto B</a><a href="./proto/c.html">Proto C</a>
+</nav>
+<div class="bar">
+  <div class="pill" id="conn">socket: ...</div>
+  <div class="pill" id="rate">raw: -</div>
+  <div class="pill" id="mode">mode: -</div>
+</div>
+<div class="row">
+  <label>Name <input id="who" placeholder="who is recording" maxlength="24"></label>
+  <label>Clip <select id="secs"><option value="2" selected>2 s</option><option value="5">5 s</option><option value="10">10 s</option></select></label>
+  <button class="b" id="stop">Stop</button>
+  <label>Controller <select id="ctl"><option value="builtin">built-in</option><option value="ai">AI</option><option value="both">both</option></select></label>
+</div>
+<p class="tip">Tip: one gesture per 2 s clip, many clips per label, several people. "idle" = hand away or still.</p>
+<div class="labels" id="labels"></div>
+<div id="count"></div>
+<div id="status">Pick a label to record.</div>
+<canvas id="plot" width="1000" height="260"></canvas>
+<div class="legend"><span style="color:#38bdf8">x</span><span style="color:#f472b6">y</span><span style="color:#facc15">brightness</span><span style="color:#4ade80">size</span></div>
+<script src="./libs/socket.io.min.js"></script>
+<script src="./record.js"></script>
+</body>
+</html>

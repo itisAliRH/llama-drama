@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sensor Test</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: #0b0f14; color: #e8f0ff; font-family: system-ui, Arial, sans-serif; }
+  body { padding: 12px; max-width: 1100px; margin: 0 auto; }
+  h1 { margin: 0 0 8px; font-size: 24px; }
+  nav { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 10px; }
+  nav a { color: #ffd24a; border: 2px solid #3a4666; border-radius: 10px; padding: 8px 14px; text-decoration: none; font-weight: 700; }
+  .bar { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 10px; }
+  .pill { padding: 10px 14px; border-radius: 10px; background: #1a2036; font: 700 18px ui-monospace, Menlo, monospace; }
+  .pill.ok { background: #14532d; }
+  .pill.bad { background: #7f1d1d; }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 12px; }
+  .tile { position: relative; min-height: 22vh; border: 3px solid #3a4666; border-radius: 16px; background: #1a2036; color: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; transition: background .5s, border-color .5s; user-select: none; cursor: pointer; padding: 6px; font-family: inherit; }
+  .tile .n { font-size: clamp(20px, 4.5vw, 40px); font-weight: 800; }
+  .tile .s { font-size: clamp(12px, 2.2vw, 18px); color: #9fb4d8; }
+  .tile .c { font: 800 clamp(28px, 7vw, 64px) ui-monospace, Menlo, monospace; }
+  .tile.done { border-color: #22c55e; background: #14532d; }
+  .tile.flash { background: #ffd24a !important; color: #111; border-color: #fff; transition: none; }
+  .tile.flash .s { color: #333; }
+  .tile .chk { position: absolute; top: 6px; right: 12px; font-size: 28px; display: none; }
+  .tile.done .chk { display: block; }
+  .row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
+  button.b { min-height: 52px; padding: 0 18px; border: 2px solid #3a4666; border-radius: 10px; background: #1a2036; color: #fff; font: 700 16px system-ui, Arial, sans-serif; cursor: pointer; }
+  button.b.on { background: #ffd24a; color: #111; }
+  .panel { background: #000; border-radius: 12px; padding: 12px; font: 16px/1.5 ui-monospace, Menlo, monospace; margin-bottom: 12px; }
+  .panel b { color: #ffd24a; }
+  #log div { display: flex; gap: 12px; }
+  #log .t { color: #789; }
+  #msg { font-weight: 800; color: #22c55e; min-height: 1.5em; }
+  @media (max-width: 600px) { .tile { min-height: 16vh; } }
+</style>
+</head>
+<body>
+<h1>Sensor Test</h1>
+<nav>
+  <a href="./index.html">Game</a><a href="./proto/a.html">Proto A</a><a href="./proto/b.html">Proto B</a><a href="./proto/c.html">Proto C</a>
+</nav>
+<div class="bar">
+  <div class="pill" id="conn">socket: ...</div>
+  <div class="pill" id="age">last debug: -</div>
+  <div class="pill" id="sens">sensor: -</div>
+</div>
+<div class="grid" id="grid"></div>
+<div class="row">
+  <button class="b" id="reset">Reset counts</button>
+  <button class="b" id="check">Checklist mode: off</button>
+  <div id="msg"></div>
+</div>
+<div class="panel" id="info"></div>
+<div class="panel"><b>Log (last 20)</b><div id="log"></div></div>
+<script src="./libs/socket.io.min.js"></script>
+<script src="./sensor.js"></script>
+<script src="./settings.js"></script>
+<script src="./bridge.js"></script>
+</body>
+</html>

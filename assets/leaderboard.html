@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leaderboard // Bare Metal</title>
+<style>
+  :root { color-scheme: dark; }
+  html, body { margin: 0; min-height: 100%; background: #05060d; color: #e8f0ff; font-family: system-ui, Arial, sans-serif; }
+  body { display: flex; flex-direction: column; align-items: center; padding: 3vh 16px; box-sizing: border-box; min-height: 100vh; }
+  h1 { margin: 0 0 1vh; font-size: clamp(32px, 7vh, 96px); letter-spacing: .08em; text-align: center; color: #4fd1ff; text-shadow: 0 0 24px rgba(79,209,255,.45); }
+  #last { min-height: 5vh; font-size: clamp(18px, 3.6vh, 48px); text-align: center; color: #ffd24a; font-weight: 800; margin-bottom: 1.5vh; }
+  table { width: 100%; max-width: 1400px; border-collapse: collapse; font-variant-numeric: tabular-nums; font-size: clamp(18px, 4.6vh, 64px); }
+  th { text-align: left; font-size: .45em; letter-spacing: .1em; opacity: .55; padding: 0 .4em .3em; font-weight: 600; }
+  td { padding: .12em .4em; border-top: 1px solid rgba(120,160,255,.15); white-space: nowrap; }
+  td.r, th.r { text-align: right; }
+  td.rank { width: 2.5em; color: #8a93a8; }
+  tr.p1 td { color: #ffd24a; font-weight: 900; }
+  tr.p2 td { color: #dfe7f5; font-weight: 800; }
+  tr.p3 td { color: #e0a070; font-weight: 800; }
+  tr.hl td { background: rgba(255,210,74,.12); }
+  td.ui { font-size: .5em; opacity: .55; }
+  #foot { margin-top: auto; padding-top: 2vh; font-size: clamp(12px, 1.8vh, 22px); opacity: .5; text-align: center; }
+  a { color: inherit; }
+  @media (max-width: 600px) { td.ui, th.ui { display: none; } }
+</style>
+</head>
+<body>
+  <h1>LEADERBOARD</h1>
+  <div id="last"></div>
+  <table>
+    <thead><tr><th>#</th><th>Name</th><th class="r">Score</th><th class="r">Level</th><th class="r">Coins</th><th class="ui">Game</th></tr></thead>
+    <tbody id="body"></tbody>
+  </table>
+  <div id="foot"><span id="conn">connecting...</span> &middot; <a href="index.html">back</a></div>
+<script src="libs/socket.io.min.js" onerror="void 0"></script>
+<script>
+(function () {
+  var body = document.getElementById('body'), lastEl = document.getElementById('last'), conn = document.getElementById('conn');
+  var hl = null;
+
+  function render(top) {
+    while (body.firstChild) body.removeChild(body.firstChild);
+    top = top || [];
+    if (!top.length) {
+      var tr0 = document.createElement('tr'), td0 = document.createElement('td');
+      td0.colSpan = 6; td0.textContent = 'No runs yet. Go play!'; td0.style.opacity = '.6';
+      tr0.appendChild(td0); body.appendChild(tr0);
+      return;
+    }
+    top.slice(0, 10).forEach(function (e, i) {
+      var tr = document.createElement('tr');
+      var cls = i < 3 ? 'p' + (i + 1) : '';
+      if (hl && e.name === hl.name && e.score === hl.score) cls += ' hl';
+      tr.className = cls;
+      [[String(i + 1), 'rank'], [e.name, ''], [String(e.score), 'r'], [String(e.level == null ? '' : e.level), 'r'],
+       [String(e.coins == null ? '' : e.coins), 'r'], [String(e.ui || ''), 'ui']].forEach(function (c) {
+        var td = document.createElement('td');
+        td.textContent = c[0]; if (c[1]) td.className = c[1];
+        tr.appendChild(td);
+      });
+      body.appendChild(tr);
+    });
+  }
+  function onBoard(msg) {
+    if (!msg) return;
+    if (msg.last) {
+      hl = msg.last;
+      lastEl.textContent = (msg.last.isBest ? 'NEW BEST! ' : '') + msg.last.name + ' scored ' + msg.last.score + ' (rank #' + msg.last.rank + ')';
+    }
+    render(msg.top);
+  }
+  function local() {
+    var d = null;
+    try { d = JSON.parse(localStorage.getItem('lb_local') || ''); } catch (e) {}
+    render((d && d.top) || []);
+  }
+
+  var sock = null;
+  // same test as bridge.js: static host, file:// or ?offline means no board
+  var offline = location.protocol === 'file:' || /(^|\.)github\.io$/.test(location.hostname) || /[?&]offline(=|&|$)/.test(location.search);
+  if (!offline && typeof io !== 'undefined') {
+    try { sock = io({ transports: ['websocket'], reconnectionAttempts: 5 }); } catch (e) { sock = null; }
+  }
+  if (!sock) {
+    conn.textContent = 'offline: local scores only';
+    local();
+    return;
+  }
+  local();
+  sock.on('leaderboard', onBoard);
+  sock.on('connect', function () { conn.textContent = 'live'; sock.io.reconnectionAttempts(Infinity); sock.emit('leaderboard_get', {}); });
+  sock.on('connect_error', function () { conn.textContent = 'offline: local scores only'; });
+  sock.on('disconnect', function () { conn.textContent = 'reconnecting...'; });
+  setInterval(function () { if (sock.connected) sock.emit('leaderboard_get', {}); }, 15000);
+})();
+</script>
+</body>
+</html>
