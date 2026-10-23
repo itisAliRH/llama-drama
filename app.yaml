@@ -1,0 +1,6 @@
+name: Llama Drama Gestures
+icon: 🏃
+description: Endless runner controlled by a Grove Gesture (PAJ7620) sensor
+
+bricks:
+  - arduino:web_ui
