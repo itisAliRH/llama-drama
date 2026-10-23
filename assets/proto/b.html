@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+<title>Llama Drama 3D</title>
+<style>
+html,body{margin:0;height:100%;background:#000;overflow:hidden;touch-action:none;font-family:system-ui,Arial,sans-serif;color:#fff}
+canvas{display:block;width:100vw;height:100vh}
+#hud{position:fixed;inset:0;pointer-events:none;z-index:5}
+.t{text-shadow:0 2px 0 rgba(0,0,0,.6),0 0 12px rgba(0,0,0,.5);font-weight:900}
+#score{position:absolute;top:2vh;left:0;right:0;text-align:center;font-size:max(40px,9vh)}
+#speed{position:absolute;left:16px;bottom:14px;font-size:max(14px,2.6vh);letter-spacing:.08em}
+#trk{position:absolute;right:16px;bottom:14px;font-size:max(14px,2.6vh);letter-spacing:.08em}
+#duck{position:absolute;top:14vh;left:0;right:0;text-align:center;font-size:max(22px,5vh);color:#ffd24a;display:none}
+#flash{position:absolute;top:46vh;left:0;right:0;text-align:center;font-size:max(44px,14vh);opacity:0}
+.ov{position:absolute;inset:0;display:none;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 16px;gap:1.6vh}
+#start{background:rgba(0,0,0,.5)}
+#over{background:rgba(120,0,0,.5)}
+.ov h1{margin:0;font-size:min(9vh,6vw);letter-spacing:.04em}
+.ov h2{margin:0;font-size:max(24px,6vh)}
+.ov p{margin:0;font-size:max(15px,3.2vh)}
+.ov .k{color:#ffd24a}
+.ov .play{pointer-events:auto;font:900 max(18px,3.6vh) system-ui,Arial,sans-serif;letter-spacing:.06em;padding:.45em 1.6em;border:0;border-radius:12px;background:#ffd24a;color:#111;cursor:pointer;touch-action:manipulation}
+.gest{display:none}.bm-board .gest{display:inline}.bm-board .web{display:none}
+#bmute{position:fixed;top:64px;left:8px;width:48px;height:48px;border-radius:24px;border:0;background:rgba(0,0,0,.55);color:#fff;font-size:22px;line-height:48px;text-align:center;z-index:40;cursor:pointer;padding:0;touch-action:manipulation}
+#dbg{position:fixed;top:8px;right:8px;width:290px;max-height:calc(100vh - 16px);overflow:hidden;padding:8px 10px;background:rgba(0,0,0,.72);color:#e8f0ff;font:12px/1.35 ui-monospace,Menlo,Consolas,monospace;border-radius:6px;pointer-events:none;z-index:10;word-break:break-all}
+#dbg b{display:block;margin:6px 0 2px;color:#ffd24a}
+#dbg .r{display:flex;justify-content:space-between;gap:8px}
+#dbg .k{color:#9fb4d8}
+#dbg i{color:#8a93a8;font-style:normal}
+#dbg .m{color:#8a93a8}
+#dbg .st,#dbg .st .k,#dbg .st i{color:#ff5a5a}
+</style>
+</head><body>
+<div id="hud">
+  <div id="score" class="t">0</div>
+  <div id="duck" class="t">DUCKING</div>
+  <div id="flash" class="t"></div>
+  <div id="speed" class="t">SPEED 0</div>
+  <div id="trk" class="t">TRACK 1</div>
+  <div id="start" class="ov t">
+    <h1>LLAMA DRAMA // BARE METAL</h1>
+    <h2>Press START</h2>
+    <p>3 lives &middot; jump, duck, dodge</p>
+    <button type="button" class="play">&#9654; PLAY</button>
+    <p class="k"><span class="web">Space / Enter or tap to start</span><span class="gest">Push or Space to start</span> &middot; controls on the left</p>
+  </div>
+  <div id="over" class="ov t">
+    <h1>GAME OVER</h1>
+    <h2 id="oscore">Score 0</h2>
+    <p id="obest">Best 0</p>
+    <button type="button" class="play">&#9654; PLAY AGAIN</button>
+    <p class="k"><span class="web">Space / Enter to restart</span><span class="gest">Press START to restart</span></p>
+  </div>
+</div>
+<button type="button" id="bmute" title="Mute (M)" aria-label="Mute">&#128266;</button>
+<script src="../libs/three.min.js"></script>
+<script src="./b.js"></script>
+<script src="../sound.js"></script>
+<script src="../settings.js"></script>
+<script src="../libs/socket.io.min.js"></script>
+<script src="../bridge.js"></script>
+<script src="../leaderboard.js"></script>
+<script src="../controls.js"></script>
+</body></html>

@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+<title>LLAMA DRAMA // BARE METAL</title>
+<style>
+  html, body { margin: 0; height: 100%; overflow: hidden; background: #0a0f0a; font-family: system-ui, Arial, sans-serif; }
+  canvas { display: block; width: 100vw; height: 100vh; }
+  #dbg { position: fixed; top: 0; right: 0; width: 260px; max-height: 100vh; overflow: auto; box-sizing: border-box; padding: 8px 10px; background: rgba(10,12,10,.82); color: #cfe; font: 12px/1.45 ui-monospace, Menlo, monospace; z-index: 10; }
+  #dbg b { display: block; margin-top: 8px; color: #ffe08a; }
+  #dbg .r { display: flex; justify-content: space-between; gap: 8px; }
+  #dbg .k { color: #9cb; }
+  #dbg .m { color: #789; }
+  #dbg .st { opacity: .45; }
+  #dbg i { color: #789; font-style: normal; }
+</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+<script src="a.js"></script>
+<script src="../sound.js"></script>
+<script src="../settings.js"></script>
+<script src="../libs/socket.io.min.js"></script>
+<script src="../bridge.js"></script>
+</body>
+</html>
